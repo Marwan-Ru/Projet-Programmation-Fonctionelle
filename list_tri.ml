@@ -9,7 +9,7 @@ let decroissant x y = (x >= y) ;;
 
 (* 1. *)
 
-let partitionne_pivot_bis croissant l pivot l1 l2 =
+let rec partitionne_pivot_bis croissant l pivot l1 l2 =
 match l with
 []-> (l1, l2)
 |x::r -> if (croissant x pivot)
@@ -22,9 +22,6 @@ partitionne_pivot_bis croissant l (List.hd l) [] [] ;;
 let list = random_list 100 20 ;;
 partitionne_pivot croissant list ;;
 
-(*
-partitionne_pivot croissant
-*)
 (* 2. *) 
 
 
