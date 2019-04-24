@@ -1,5 +1,27 @@
 (* module list tri *)
 
+(* Tri partition-fusion *)
+(* 1. *)
+let rec partitionne_bis l rang l1 l2 =
+match l with
+[] -> (l1,l2)
+|x::r -> if rang mod 2 == 0 
+         then partitionne_bis r (rang+1) (x::l1) l2
+         else partitionne_bis r (rang+1) l1 (x::l2) ;;
+
+let partitionne l = 
+match l with
+[] -> ([],[])
+|x::r -> partitionne_bis l 0 [] [] ;;
+
+
+(* 2. 
+let rec fusionne_bis comp l l1 l2 =
+match comp with
+[] -> 
+*)
+
+
 (* Tri pivot *)
 
 (* 1. *)
