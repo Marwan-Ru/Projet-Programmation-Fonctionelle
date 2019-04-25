@@ -23,9 +23,16 @@ match l1 with
 
 let fusionne comp l1 l2 = 
 if comp == 1 then concat l1 l2
-else concat l2 l1
+else concat l2 l1 ;;
 
 (* 3. *)
+let rec tri_partition_fusion comp l =
+if l = []
+then []
+else let (l1, l2) = partitionne l in
+     if l1 = [] && l2 =[]
+     then []
+     else if 
 
 (* Tri pivot *)
 
