@@ -15,12 +15,17 @@ match l with
 |x::r -> partitionne_bis l 0 [] [] ;;
 
 
-(* 2. 
-let rec fusionne_bis comp l l1 l2 =
-match comp with
-[] -> 
-*)
+(* 2. *)
+let rec concat l1 l2 =
+match l1 with
+[] -> l2
+|x::r -> x::(concat r l2);;
 
+let fusionne comp l1 l2 = 
+if comp == 1 then concat l1 l2
+else concat l2 l1
+
+(* 3. *)
 
 (* Tri pivot *)
 
