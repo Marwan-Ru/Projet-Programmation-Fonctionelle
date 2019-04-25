@@ -16,23 +16,26 @@ match l with
 
 
 (* 2. *)
-let rec concat l1 l2 =
-match l1 with
-[] -> l2
-|x::r -> x::(concat r l2);;
+let rec fusionne_bis comp lc =
+match lc with
+([], []) -> []
+|([],a::b) -> a::b
+|(x::r,[]) -> x::r
+|(x::r, a::b) -> if comp x a then x::(fusionne_bis comp (r, a::b))
+                 else a::(fusionne_bis comp (x::r,b)) ;;
 
-let fusionne comp l1 l2 = 
-if comp == 1 then concat l1 l2
-else concat l2 l1 ;;
+let fusionne comp l1 l2 = fusionne_bis comp (l1,l2) ;;
 
-(* 3. 
+(* 3. *)
 let rec tri_partition_fusion comp l =
 if l = []
 then []
 else let (l1, l2) = partitionne l in
      if l1 = [] && l2 =[]
      then []
-     else if *)
+     else if (List.length l1 <= 1) && (List.length l2 <= 1)
+          then fusionne comp l1 l2
+          else fusionne comp (tri_partition_fusion comp l1) (tri_partition_fusion comp l2) ;;
 
 (* Tri pivot *)
 
