@@ -1,14 +1,14 @@
 \documentclass[a4paper, 12pt]{article}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
-
 \usepackage{hyperref}
-
+\usepackage{lmodern}
 \pagestyle{headings}
+\setlength{\parindent}{0pt}
 
 \title{Compte rendu - Projet programmation fonctionnelle}
 \author{Dorine Descamps et Marwan Ait Addi}
@@ -20,4 +20,79 @@
 \tableofcontents
 \newpage
 
+Afin de faire un choix de liste cohérent, nous avons testé le temps que mettaient nos fonctions à trier des listes en faisant changer plusieurs variables. L'ordre étant une variable possible nous gardons l'ordre croissant pour tous les autres tests. Nous arrondirons les temps en fonctions des résultats, l'unité étant la seconde.
+
+\section{Comparaison du temps des fonctions de tri en augmentant la taille des listes}
+
+Nous nous plaçons dans une fourchette d'entier de 0 à 100 pour le choix des éléments de la liste et augmentons la taille de la liste en multipliant par 10 à chaque fois.\\
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+nombre d'éléments de la liste & 10 & 100 & 1000 & 10 000 \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0 & 0 &0.001 & 0.041 \\ 
+\hline 
+temps tri$\_$pivot & 0 & 0.001 & 0.002 & 0.065\\ 
+\hline 
+temps tri$\_$bulle & 0 & 0.002 & 0.2 & 28.34 \\ 
+\hline 
+\end{tabular} \\ \newline
+
+Il apparaît déjà que le tri à bulle est la manière de trier la moins optimisé sur de grande liste.
+
+\section{Comparaison du temps des fonctions de tri en augmentant la fourchette d'éléments possible}
+
+Cette fois-ci, nous gardons la taille de la liste constante à 1000 éléments et augmentons la fourchette d'entier possible. \newline 
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+fourchette d'éléments de la liste & 50 & 500 & 5000 & 10 000 \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.003 & 0.003 & 0.003& 0.006 \\ 
+\hline 
+temps tri$\_$pivot & 0.002 & 0.002 & 0.002 & 0.004\\ 
+\hline 
+temps tri$\_$bulle & 0.22 & 0.25 & 0.23 & 0.25 \\ 
+\hline 
+\end{tabular} \\ \newline
+
+Nous pouvons remarqué que la fourchette d'éléments n'est pas une variable très important, les résultats sont relativement stables. 
+
+\section{Comparaison du temps des fonctions de tri en fonction de l'ordre} 
+
+Pour cette partie nous prenons une liste de 1000 éléments compris entre 0 et 5000 et changeons l'ordre de tri. \newline 
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ordre & < & > & <= & >= \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.004 & 0.003 &0.0030 & 0.002 \\ 
+\hline 
+temps tri$\_$pivot & 0.002 & 0.002 & 0.0020 & 0.001\\ 
+\hline 
+temps tri$\_$bulle & 0.23 & 0.21 & 0.229 & 0.23 \\ 
+\hline  
+\end{tabular} \\ \newline
+
+Là aussi, nous remarquons que l'ordre n'impacte pas beaucoup le temps de résolution, les résultats restent plutôt constants. 
+
+\section{Comparaison du temps des fonctions de tri en fonction du nombre de doublons}
+
+Ici, nous utilisons des listes de 100 éléments modifiés à la main pour avoir la quantité de doublons voulue. \newline
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Quantité de doublons & 100$\%$ & environ 50$\%$ & 25$\%$ & aucun \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.001 & 0 &0.001 & 0.001 \\ 
+\hline 
+temps tri$\_$pivot & 0.08 & 0 & 0.001 & 0\\ 
+\hline 
+temps tri$\_$bulle & 0 & 0.004 & 0.005 & 0.001 \\ 
+\hline  
+\end{tabular} \\ \newline
+
+Les chiffres de cette expérience ne donnent pas de résultats flagrants, si ce n'est que le tri à bulle est toujours à la traine. 
+  
+\section{Comparaison du temps des fonctions de tri avec des listes déjà triées }
 \end{document}

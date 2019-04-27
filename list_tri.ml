@@ -3,7 +3,9 @@
 (* module list tri *)
 
 (* Tri partition-fusion *)
+
 (* 1. *)
+(*
 let rec partitionne_bis l rang l1 l2 =
 match l with
 [] -> (l1,l2)
@@ -18,6 +20,7 @@ match l with
 
 
 (* 2. *)
+
 let rec fusionne_bis comp lc =
 match lc with
 ([], []) -> []
@@ -39,11 +42,13 @@ else let (l1, l2) = partitionne l in
           then fusionne comp l1 l2
           else fusionne comp (tri_partition_fusion comp l1) (tri_partition_fusion comp l2) ;;
 
+tri_partition_fusion (<) [4;2;6;1;3;9;5] ;;
+
 (* Tri pivot *)
 
 (* 1. *)
 
-(*
+
 let rec partitionne_pivot_bis comp l pivot l1 l2 =
 match l with
 [] -> (l1,l2)
@@ -59,13 +64,13 @@ match l with
 (*
  let list = random_list 100 20 ;;
  *)
-
+(*
 partitionne_pivot (>) [4;2;6;1;1;3;9;5] 6 ;;
 *)
 
 (* 2. *)
 
-(*
+
 let rec tri_pivot comp l =
 if l = []
 then []
@@ -78,7 +83,7 @@ else let pivot = (List.hd l) in
           else if l1<>[] && l2 = []
                then (tri_pivot comp l1) @ ((List.hd l) :: [])
                else (tri_pivot comp l1) @ ((List.hd l) :: [])@(tri_pivot comp l2) ;;
-
+(*
 let list = random_list 50 20 ;;
 
 tri_pivot (>) list ;;
@@ -96,8 +101,9 @@ match l with
 | x::y::r -> if (comp x y) 
              then x::(tri_bulle_bis comp (y::r))
              else y::(tri_bulle_bis comp (x::r)) ;;
-
+(*
 tri_bulle_bis (<=) [4;2;6;1;3;9;5] ;;
+*)
 
 (* 2. *)
 
@@ -106,8 +112,33 @@ if l = (tri_bulle_bis comp l)
 then l
 else (tri_bulle comp (tri_bulle_bis comp l)) ;;
 
+(*
 tri_bulle (<=) [4;2;6;1;3;9;5] ;;
+*)
+*)
+(* test temps *) 
 
+let list = [0; 2; 5; 12; 18; 28; 35; 37; 39; 42; 45; 51; 53; 64; 73; 76; 80; 81; 82; 82; 88; 91; 100; 106; 108; 109; 114; 115; 119; 126; 133; 136; 138; 139; 140; 140; 144; 147; 147; 149; 157; 158; 167; 172; 179; 179; 192; 209; 211; 220; 222; 226; 233; 236; 245; 247; 248; 264; 265; 272; 279; 279; 284; 304; 319; 320; 355; 357; 360; 363; 369; 371; 374; 382; 382; 382; 391; 394; 394; 395; 396; 399; 408; 414; 432; 433; 436; 436; 448; 453; 457; 460; 462; 464; 468; 480; 483; 491; 495; 499] ;;
+
+let c = (<) ;; 
+
+let temps_p_f =
+let temps_debut = Sys.time () in
+let _ = tri_partition_fusion c list in
+let temps_fin = Sys.time () in
+(temps_fin -. temps_debut) ;;
+
+let temps_pivot =
+let temps_debut = Sys.time () in
+let _ = tri_pivot c list in
+let temps_fin = Sys.time () in
+(temps_fin -. temps_debut) ;;
+
+let temps_bulle =
+let temps_debut = Sys.time () in
+let _ = tri_bulle c list in
+let temps_fin = Sys.time () in
+(temps_fin -. temps_debut) ;; 
 
 
 
