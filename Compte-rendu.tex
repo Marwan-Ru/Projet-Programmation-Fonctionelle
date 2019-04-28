@@ -24,26 +24,29 @@ Afin de faire un choix de liste cohérent, nous avons testé le temps que mettai
 
 \section{Comparaison du temps des fonctions de tri en augmentant la taille des listes}
 
-Nous nous plaçons dans une fourchette d'entier de 0 à 100 pour le choix des éléments de la liste et augmentons la taille de la liste en multipliant par 10 à chaque fois.\\
+Nous nous plaçons dans une fourchette d'entier de 0 à 100 pour le choix des éléments de la liste et augmentons la taille de la liste.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline 
+nombre d'éléments de la liste & 10 & 100 & 1000 & 10 000 & 25 000 & 50 000 \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0 & 0 & 0.003 & 0.043 & 0.13 & 0.29 \\ 
+\hline 
+temps tri$\_$pivot & 0 & 0 & 0.002 & 0.051 & 0.36 & 1.83 \\ 
+\hline 
+temps tri$\_$bulle & 0 & 0.002 & 0.2 & 28.34 & \multicolumn{2}{c|}{cf remarque} \\ 
+\hline
+\end{tabular}
+\end{center} 
 
-\begin{tabular}{|c|c|c|c|c|}
-\hline 
-nombre d'éléments de la liste & 10 & 100 & 1000 & 10 000 \\ 
-\hline 
-temps tri$\_$partition$\_$fusion & 0 & 0 &0.001 & 0.041 \\ 
-\hline 
-temps tri$\_$pivot & 0 & 0.001 & 0.002 & 0.065\\ 
-\hline 
-temps tri$\_$bulle & 0 & 0.002 & 0.2 & 28.34 \\ 
-\hline 
-\end{tabular} \\ \newline
+Remarque : Nous ne traitons plus la fonction tri à bulle pour les listes de 25 000 et 50 000 éléments,2 sachant que les temps seront énormes (compté en minute voire dizaine de minutes) \\
 
-Il apparaît déjà que le tri à bulle est la manière de trier la moins optimisé sur de grande liste.
+Il apparaît déjà que le tri à bulle est la manière de trier la moins optimisé sur de grande liste mais aussi que la fonction la plus rapide semble être le tri par partition-fusion.
 
 \section{Comparaison du temps des fonctions de tri en augmentant la fourchette d'éléments possible}
 
-Cette fois-ci, nous gardons la taille de la liste constante à 1000 éléments et augmentons la fourchette d'entier possible. \newline 
-
+Cette fois-ci, nous gardons la taille de la liste constante à 1000 éléments et augmentons la fourchette d'entier possible. 
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
 fourchette d'éléments de la liste & 50 & 500 & 5000 & 10 000 \\ 
@@ -54,14 +57,15 @@ temps tri$\_$pivot & 0.002 & 0.002 & 0.002 & 0.004\\
 \hline 
 temps tri$\_$bulle & 0.22 & 0.25 & 0.23 & 0.25 \\ 
 \hline 
-\end{tabular} \\ \newline
+\end{tabular} 
+\end{center}
 
-Nous pouvons remarqué que la fourchette d'éléments n'est pas une variable très important, les résultats sont relativement stables. 
+Nous pouvons remarqué que la fourchette d'éléments n'est pas une variable très important, les résultats sont relativement stables même si le pivot est le plus rapide.
 
 \section{Comparaison du temps des fonctions de tri en fonction de l'ordre} 
 
-Pour cette partie nous prenons une liste de 1000 éléments compris entre 0 et 5000 et changeons l'ordre de tri. \newline 
-
+Pour cette partie nous prenons une liste de 1000 éléments compris entre 0 et 5000 et changeons l'ordre de tri. 
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
 ordre & < & > & <= & >= \\ 
@@ -72,14 +76,15 @@ temps tri$\_$pivot & 0.002 & 0.002 & 0.0020 & 0.001\\
 \hline 
 temps tri$\_$bulle & 0.23 & 0.21 & 0.229 & 0.23 \\ 
 \hline  
-\end{tabular} \\ \newline
+\end{tabular}
+\end{center} 
 
-Là aussi, nous remarquons que l'ordre n'impacte pas beaucoup le temps de résolution, les résultats restent plutôt constants. 
+Là aussi, nous remarquons que l'ordre n'impacte pas beaucoup le temps de résolution, les résultats restent plutôt constants et le tri par pivot est toujours plus rapide.  
 
 \section{Comparaison du temps des fonctions de tri en fonction du nombre de doublons}
 
-Ici, nous utilisons des listes de 100 éléments modifiés à la main pour avoir la quantité de doublons voulue. \newline
-
+Ici, nous utilisons des listes de 100 éléments entre 0 et 100 modifiés à la main pour avoir la quantité de doublons voulue.
+\begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline 
 Quantité de doublons & 100$\%$ & environ 50$\%$ & 25$\%$ & aucun \\ 
@@ -90,9 +95,82 @@ temps tri$\_$pivot & 0.08 & 0 & 0.001 & 0\\
 \hline 
 temps tri$\_$bulle & 0 & 0.004 & 0.005 & 0.001 \\ 
 \hline  
-\end{tabular} \\ \newline
+\end{tabular}
+\end{center} 
 
 Les chiffres de cette expérience ne donnent pas de résultats flagrants, si ce n'est que le tri à bulle est toujours à la traine. 
   
-\section{Comparaison du temps des fonctions de tri avec des listes déjà triées }
+\section{Comparaison du temps des fonctions de tri avec des listes déjà triées}
+
+Pour ces tests nous utilisons des listes déjà triées de 1000 éléments entre 0 et 1000 et nous étudions le réaction des fonctions en fonction de l'ordre donné en paramètre.
+
+\subsection{Liste trié dans l'ordre croissant stricte (<)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ordre & < & > & <= & >= \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.002 & 0.003 &0.007 & 0.003 \\ 
+\hline 
+temps tri$\_$pivot & 0.08 & 0.11 & 0.07 & 0.1\\ 
+\hline 
+temps tri$\_$bulle & 0 & 0.22 & 0 & 0.24 \\ 
+\hline  
+\end{tabular}
+\end{center} 
+
+\subsection{Liste trié dans l'ordre décroissant stricte (>)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ordre & < & > & <= & >= \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.002 & 0.003 &0.003 & 0.003 \\ 
+\hline 
+temps tri$\_$pivot & 0.07 & 0.09 & 0.07 & 0.07\\ 
+\hline 
+temps tri$\_$bulle & 0.03 & 0 & 0.23 & 0 \\ 
+\hline  
+\end{tabular} 
+\end{center}
+
+\subsection{Liste trié dans l'ordre croissant non stricte (<=)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ordre & < & > & <= & >= \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.002 & 0.002 &0.003 & 0.006 \\ 
+\hline 
+temps tri$\_$pivot & 0.09 & 0.09 & 0.07 & 0.1\\ 
+\hline 
+temps tri$\_$bulle & 0 & 0.001 & 0 & 0.25 \\ 
+\hline 
+\end{tabular}
+\end{center} 
+
+\subsection{Liste trié dans l'ordre décroissant non stricte (>=)}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ordre & < & > & <= & >= \\ 
+\hline 
+temps tri$\_$partition$\_$fusion & 0.006 & 0.006 &0.003 & 0.002 \\ 
+\hline 
+temps tri$\_$pivot & 0.12 & 0.07 & 0.067 & 0.08\\ 
+\hline 
+temps tri$\_$bulle & 0.2 & 0.24 & 0.26 & 0 \\ 
+\hline  
+\end{tabular}
+\end{center} 
+
+Il apparaît que la fonction bulle est la plus efficace pour trié une liste déjà trié dans le même ordre, ce qui est tout a fait logique mais pour le reste c'est la fonction tri partition fusion qui est la plus rapide. \\
+
+A ce stade, nous avons une égalité entre partition-fusion et pivot.
+ 
+
 \end{document}
