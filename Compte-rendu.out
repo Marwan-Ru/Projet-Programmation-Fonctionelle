@@ -2,4 +2,8 @@
 \BOOKMARK [1][-]{section.2}{Comparaison du temps des fonctions de tri en augmentant la fourchette d'\351l\351ments possible}{}% 2
 \BOOKMARK [1][-]{section.3}{Comparaison du temps des fonctions de tri en fonction de l'ordre}{}% 3
 \BOOKMARK [1][-]{section.4}{Comparaison du temps des fonctions de tri en fonction du nombre de doublons}{}% 4
-\BOOKMARK [1][-]{section.5}{Comparaison du temps des fonctions de tri avec des listes d\351j\340 tri\351es }{}% 5
+\BOOKMARK [1][-]{section.5}{Comparaison du temps des fonctions de tri avec des listes d\351j\340 tri\351es}{}% 5
+\BOOKMARK [2][-]{subsection.5.1}{Liste tri\351 dans l'ordre croissant stricte \(<\)}{section.5}% 6
+\BOOKMARK [2][-]{subsection.5.2}{Liste tri\351 dans l'ordre d\351croissant stricte \(>\)}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.3}{Liste tri\351 dans l'ordre croissant non stricte \(<=\)}{section.5}% 8
+\BOOKMARK [2][-]{subsection.5.4}{Liste tri\351 dans l'ordre d\351croissant non stricte \(>=\)}{section.5}% 9
