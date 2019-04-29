@@ -110,7 +110,6 @@ match l with
 [] -> failwith "Liste vide"
 |a::r -> min_list_bis comp r a ;;
 
-
 (* Suppr_doublons *)
 
 let rec suppr_doublons l = 
