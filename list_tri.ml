@@ -1,7 +1,5 @@
 (* module list tri *)
 
-(* module list tri *)
-
 (* Tri partition-fusion *)
 
 (* 1. *)
@@ -17,7 +15,6 @@ let partitionne l =
 match l with
 [] -> ([],[])
 |x::r -> partitionne_bis l 0 [] [] ;;
-
 
 (* 2. *)
 
@@ -41,13 +38,11 @@ else let (l1, l2) = partitionne l in
      else if (List.length l1 <= 1) && (List.length l2 <= 1)
           then fusionne comp l1 l2
           else fusionne comp (tri_partition_fusion comp l1) (tri_partition_fusion comp l2) ;;
-
-tri_partition_fusion (<) [4;2;6;1;3;9;5] ;;
+*)
 
 (* Tri pivot *)
 
 (* 1. *)
-
 
 let rec partitionne_pivot_bis comp l pivot l1 l2 =
 match l with
@@ -61,15 +56,7 @@ match l with
 [] -> ([],[]) 
 |x::r -> partitionne_pivot_bis comp l pivot [] [] ;;
 
-(*
- let list = random_list 100 20 ;;
- *)
-(*
-partitionne_pivot (>) [4;2;6;1;1;3;9;5] 6 ;;
-*)
-
 (* 2. *)
-
 
 let rec tri_pivot comp l =
 if l = []
@@ -83,13 +70,8 @@ else let pivot = (List.hd l) in
           else if l1<>[] && l2 = []
                then (tri_pivot comp l1) @ ((List.hd l) :: [])
                else (tri_pivot comp l1) @ ((List.hd l) :: [])@(tri_pivot comp l2) ;;
+
 (*
-let list = random_list 50 20 ;;
-
-tri_pivot (>) list ;;
-*)
-
-
 (* Tri à bulle *)
 
 (* 1. *)
@@ -101,9 +83,6 @@ match l with
 | x::y::r -> if (comp x y) 
              then x::(tri_bulle_bis comp (y::r))
              else y::(tri_bulle_bis comp (x::r)) ;;
-(*
-tri_bulle_bis (<=) [4;2;6;1;3;9;5] ;;
-*)
 
 (* 2. *)
 
@@ -111,13 +90,40 @@ let rec tri_bulle comp l =
 if l = (tri_bulle_bis comp l)
 then l
 else (tri_bulle comp (tri_bulle_bis comp l)) ;;
+*)
 
+let tri comp l = tri_pivot comp l ;;
+
+
+(*Min_list*)
+
+
+let rec min_list_bis comp l x =
+match l with
+[] -> x
+|a::r -> if comp x a
+         then min_list_bis comp r x
+         else min_list_bis comp r a ;;
+	 
+let min_list comp l =
+match l with
+[] -> failwith "Liste vide"
+|a::r -> min_list_bis comp r a ;;
+
+
+(* Suppr_doublons *)
+
+let rec suppr_doublons l = 
+let ltrie = tri_pivot (<) l in
+match ltrie with 
+[] -> []
+|x::y::r -> if x = y
+            then suppr_doublons (x::r)
+            else x::(suppr_doublons (y::r))
+|x::r -> x::(suppr_doublons r);;
+
+(* test temps *)
 (*
-tri_bulle (<=) [4;2;6;1;3;9;5] ;;
-*)
-*)
-(* test temps *) 
-
 let list = tri_pivot (>=) (random_list 1000 1000) ;;
 
 let c = (>=) ;; 
@@ -139,7 +145,7 @@ let temps_debut = Sys.time () in
 let _ = tri_bulle c list in
 let temps_fin = Sys.time () in
 (temps_fin -. temps_debut) ;; 
-
+*)
 
 
 
