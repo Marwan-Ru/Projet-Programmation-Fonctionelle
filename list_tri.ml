@@ -92,7 +92,7 @@ then l
 else (tri_bulle comp (tri_bulle_bis comp l)) ;;
 *)
 
-let tri comp l = tri_pivot comp l ;;
+let tri comp l = tri_partition_fusion comp l ;;
 
 
 (*Min_list*)
