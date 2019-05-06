@@ -1,9 +1,11 @@
-\BOOKMARK [1][-]{section.1}{Comparaison du temps des fonctions de tri en augmentant la taille des listes}{}% 1
-\BOOKMARK [1][-]{section.2}{Comparaison du temps des fonctions de tri en augmentant la fourchette d'\351l\351ments possible}{}% 2
-\BOOKMARK [1][-]{section.3}{Comparaison du temps des fonctions de tri en fonction de l'ordre}{}% 3
-\BOOKMARK [1][-]{section.4}{Comparaison du temps des fonctions de tri en fonction du nombre de doublons}{}% 4
-\BOOKMARK [1][-]{section.5}{Comparaison du temps des fonctions de tri avec des listes d\351j\340 tri\351es}{}% 5
-\BOOKMARK [2][-]{subsection.5.1}{Liste tri\351 dans l'ordre croissant stricte \(<\)}{section.5}% 6
-\BOOKMARK [2][-]{subsection.5.2}{Liste tri\351 dans l'ordre d\351croissant stricte \(>\)}{section.5}% 7
-\BOOKMARK [2][-]{subsection.5.3}{Liste tri\351 dans l'ordre croissant non stricte \(<=\)}{section.5}% 8
-\BOOKMARK [2][-]{subsection.5.4}{Liste tri\351 dans l'ordre d\351croissant non stricte \(>=\)}{section.5}% 9
+\BOOKMARK [1][-]{section.1}{Exp\351rience}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Comparaison du temps des fonctions de tri en augmentant la taille des listes}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Comparaison du temps des fonctions de tri en augmentant la fourchette d'\351l\351ments possible}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Comparaison du temps des fonctions de tri en fonction de l'ordre}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{Comparaison du temps des fonctions de tri en fonction du nombre de doublons}{section.1}% 5
+\BOOKMARK [2][-]{subsection.1.5}{Comparaison du temps des fonctions de tri avec des listes d\351j\340 tri\351es}{section.1}% 6
+\BOOKMARK [3][-]{subsubsection.1.5.1}{Liste tri\351 dans l'ordre croissant stricte \(<\)}{subsection.1.5}% 7
+\BOOKMARK [3][-]{subsubsection.1.5.2}{Liste tri\351 dans l'ordre d\351croissant stricte \(>\)}{subsection.1.5}% 8
+\BOOKMARK [3][-]{subsubsection.1.5.3}{Liste tri\351 dans l'ordre croissant non stricte \(<=\)}{subsection.1.5}% 9
+\BOOKMARK [3][-]{subsubsection.1.5.4}{Liste tri\351 dans l'ordre d\351croissant non stricte \(>=\)}{subsection.1.5}% 10
+\BOOKMARK [1][-]{section.2}{R\351sultats}{}% 11
