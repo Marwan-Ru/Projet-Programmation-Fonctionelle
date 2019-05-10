@@ -102,6 +102,14 @@ let enveloppe = pa::(pb::[]) in
 let enveloppe = findhull (points_droite l pa pb) pa pb enveloppe in
 findhull (points_droite l pb pa) pb pa enveloppe;;
 
+let enveloppe_convexe g n =
+let l = g n in
+(vider()
+set_color red
+tracer_nuage l
+set_color blue
+tracer_polygone(quickhull l)) ;; 
+
 
 
 
