@@ -113,14 +113,6 @@ tracer_polygone(quickhull l));;
 initialiser();;
 enveloppe_convexe gen_soleil 2000 ;;
 
-let enveloppe_convexe g n =
-let l = g n in
-(vider()
-set_color red
-tracer_nuage l
-set_color blue
-tracer_polygone(quickhull l)) ;; 
-
 
 
 
