@@ -92,15 +92,26 @@ match l with
 [] -> enveloppe
 | x::r -> let c = point_eloigne p q l in
 let enveloppe = ajoute_list_apres p c enveloppe in
-let enveloppe = findhull (points_droite l p c) p c enveloppe in
-findhull (points_droite l c q) c q enveloppe;;
+let enveloppe = findhull (point_droite l p c) p c enveloppe in
+findhull (point_droite l c q) c q enveloppe;;
 
 let quickhull l =
 let l = suppr_doublons l in
 let (pa,pb) = points_depart l in
 let enveloppe = pa::(pb::[]) in
-let enveloppe = findhull (points_droite l pa pb) pa pb enveloppe in
-findhull (points_droite l pb pa) pb pa enveloppe;;
+let enveloppe = findhull (point_droite l pa pb) pa pb enveloppe in
+findhull (point_droite l pb pa) pb pa enveloppe;;
+
+let enveloppe_convexe g n =
+let l = g n in
+(vider ();
+set_color red;
+tracer_nuage l ;
+set_color blue;
+tracer_polygone(quickhull l));;
+
+initialiser();;
+enveloppe_convexe gen_soleil 2000 ;;
 
 
 
