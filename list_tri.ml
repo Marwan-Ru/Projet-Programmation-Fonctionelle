@@ -3,7 +3,7 @@
 (* Tri partition-fusion *)
 
 (* 1. *)
-(*
+
 let rec partitionne_bis l rang l1 l2 =
 match l with
 [] -> (l1,l2)
@@ -38,7 +38,7 @@ else let (l1, l2) = partitionne l in
      else if (List.length l1 <= 1) && (List.length l2 <= 1)
           then fusionne comp l1 l2
           else fusionne comp (tri_partition_fusion comp l1) (tri_partition_fusion comp l2) ;;
-*)
+
 
 (* Tri pivot *)
 
@@ -71,7 +71,7 @@ else let pivot = (List.hd l) in
                then (tri_pivot comp l1) @ ((List.hd l) :: [])
                else (tri_pivot comp l1) @ ((List.hd l) :: [])@(tri_pivot comp l2) ;;
 
-(*
+
 (* Tri à bulle *)
 
 (* 1. *)
@@ -90,7 +90,7 @@ let rec tri_bulle comp l =
 if l = (tri_bulle_bis comp l)
 then l
 else (tri_bulle comp (tri_bulle_bis comp l)) ;;
-*)
+
 
 let tri comp l = tri_partition_fusion comp l ;;
 
@@ -122,8 +122,11 @@ match ltrie with
 |x::r -> x::(suppr_doublons r);;
 
 (* test temps *)
-(*
-let list = tri_pivot (>=) (random_list 1000 1000) ;;
+(*#load "hasard.cmo" ;;
+open Hasard ;;
+init_random () ;;
+
+let list = random_list 1000 1000 ;;
 
 let c = (>=) ;; 
 
@@ -143,8 +146,8 @@ let temps_bulle =
 let temps_debut = Sys.time () in
 let _ = tri_bulle c list in
 let temps_fin = Sys.time () in
-(temps_fin -. temps_debut) ;; 
-*)
+(temps_fin -. temps_debut) ;; *)
+
 
 
 
