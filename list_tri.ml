@@ -91,6 +91,7 @@ if l = (tri_bulle_bis comp l)
 then l
 else (tri_bulle comp (tri_bulle_bis comp l)) ;;
 
+(*Tri choisi spécifié dans list_tri.mli*)
 
 let tri comp l = tri_partition_fusion comp l ;;
 
@@ -124,7 +125,6 @@ match ltrie with
 (* test temps *)
 (*#load "hasard.cmo" ;;
 open Hasard ;;
-init_random () ;;
 
 let list = random_list 1000 1000 ;;
 
@@ -146,9 +146,7 @@ let temps_bulle =
 let temps_debut = Sys.time () in
 let _ = tri_bulle c list in
 let temps_fin = Sys.time () in
-(temps_fin -. temps_debut) ;; *)
-
-
+(temps_fin -. temps_debut) ;; *) 
 
 
 
